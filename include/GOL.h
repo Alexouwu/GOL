@@ -1,6 +1,6 @@
 #include "BOARD.h"
 
-class GOF
+class GOL
 {
 private:
     bool willChange(int i, int j);
@@ -11,7 +11,7 @@ private:
     int boardSize {};
     void updateBoard(std::vector<std::pair<int, int>> &changeStatusIdx);
 public:
-    GOF(BOARD &board) : myBoard(board), boardSize(board.getSize()){};
+    GOL(BOARD &board) : myBoard(board), boardSize(board.getSize()){};
     BOARD &myBoard;
     void update(void);
     void modify(BOARD board);

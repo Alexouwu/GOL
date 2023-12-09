@@ -1,7 +1,7 @@
 #include "GOL.h"
 #include <iostream>
 
-void GOF::update()
+void GOL::update()
 {
     std::vector<std::pair<int, int>> changeStatusIdx;
     for(size_t i = 0; i < myBoard.getSize(); i++){
@@ -15,7 +15,7 @@ void GOF::update()
 };
 
 
-bool GOF::willChange(int i, int j)
+bool GOL::willChange(int i, int j)
 {
     bool isAlive = myBoard.cells[i][j][0];
     uint8_t myNeighbors = countNeighbors(i, j);
@@ -29,7 +29,7 @@ bool GOF::willChange(int i, int j)
 };
 
 
-uint8_t GOF::countNeighbors(int i, int j)
+uint8_t GOL::countNeighbors(int i, int j)
 {
     uint8_t neighborCount {};
     for (size_t ii = i-1; ii <= i+1; ii++)
@@ -50,7 +50,7 @@ uint8_t GOF::countNeighbors(int i, int j)
 }
 
 
-bool GOF::willBorn(int myNeighbors)
+bool GOL::willBorn(int myNeighbors)
 {
     if (myNeighbors == 3)
     {
@@ -60,7 +60,7 @@ bool GOF::willBorn(int myNeighbors)
 };
 
 
-bool GOF::willDie(int myNeighbors)
+bool GOL::willDie(int myNeighbors)
 {
     if (myNeighbors > 3 || myNeighbors < 2)
     {
@@ -71,7 +71,7 @@ bool GOF::willDie(int myNeighbors)
 };
 
 
-void GOF::updateBoard(std::vector<std::pair<int, int>> &changeStatusIdx)
+void GOL::updateBoard(std::vector<std::pair<int, int>> &changeStatusIdx)
 {
     for(auto idx: changeStatusIdx){
         myBoard.cells[idx.first][idx.second][0].flip();
